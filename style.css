@@ -1,0 +1,101 @@
+* {
+    margin: 10;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background: url('C:/Users/lm244/Desktop/Green IT/Project/produit-artisanal-fait-main1.jpg') no-repeat center center/cover;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .left-section {
+    flex: 1;
+    color: white;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top center;
+  }
+  
+  .left-section h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .left-section p {
+    font-size: 16px;
+    color: white;
+  }
+  
+  .left-section a {
+    color: #f7c08a;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .right-section {
+    width: 350px;
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    margin: auto;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .right-section h2 {
+    color: #6b3e22;
+    margin-bottom: 30px;
+  }
+  
+  input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border: none;
+    background: #e0e0e0;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .forgot {
+    display: block;
+    margin: 10px 0;
+    color: #6b3e22;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  hr {
+    margin: 20px 0;
+    border: none;
+    height: 2px;
+    background: #6b3e22;
+    width: 100%;
+  }
+  
+  .signup {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #6b3e22;
+  }
+  
+  .inscription {
+    background-color: #b48b63;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
