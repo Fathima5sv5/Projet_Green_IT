@@ -1,117 +1,192 @@
 <template>
     <div class="add-product-container">
-      <h1>Ajouter un produit</h1>
-      <form @submit.prevent="handleSubmit" class="form">
-        <label>
-          Nom du produit :
-          <input type="text" v-model="product.name" required />
-        </label>
+      <h1>Add a New Product</h1>
   
-        <label>
-          Description :
-          <textarea v-model="product.description" required></textarea>
-        </label>
+      <form @submit.prevent="submitProduct">
   
-        <label>
-          Prix (€) :
-          <input type="number" v-model.number="product.price" step="0.01" required />
-        </label>
+        <!-- Product name -->
+        <input v-model="product.name" type="text" placeholder="Product Name" required />
   
-        <label>
-          Image (URL) :
-          <input type="text" v-model="product.image" />
-        </label>
+        <!-- Description -->
+        <textarea v-model="product.description" placeholder="Product Description" required></textarea>
   
-        <button type="submit">Ajouter</button>
+        <!-- Price -->
+        <input v-model.number="product.price" type="number" placeholder="Price (€)" required />
+  
+        <!-- Category selection -->
+        <div class="categories">
+          <p>Select a Category:</p>
+          <label
+            v-for="cat in categories"
+            :key="cat"
+            class="category-radio"
+          >
+            <input
+              type="radio"
+              :value="cat"
+              v-model="product.category"
+              name="category"
+            />
+            <span class="dot"></span>
+            <span class="category-name">{{ cat }}</span>
+          </label>
+        </div>
+  
+        <!-- Image picker -->
+        <div class="image-picker">
+          <div class="button-row">
+            <button type="button" class="circle-btn" @click="pickFromGallery">📁</button>
+            <button type="button" class="circle-btn" @click="takePhoto">📷</button>
+          </div>
+          <div v-if="product.image">
+            <p>Image selected:</p>
+            <img :src="product.image" alt="Product preview" class="preview-image" />
+          </div>
+        </div>
+  
+        <button type="submit" class="submit-btn">Add Product</button>
       </form>
-  
-      <div v-if="submitted" class="success-message">
-        ✅ Produit ajouté avec succès !
-      </div>
     </div>
   </template>
   
   <script setup>
-  import { reactive, ref } from 'vue'
+  import { ref } from 'vue'
   
-  const product = reactive({
+  const product = ref({
     name: '',
     description: '',
     price: null,
-    image: ''
+    category: '',
+    image: null
   })
   
-  const submitted = ref(false)
+  const categories = ['Furniture', 'Jewelry', 'Clothing', 'Tableware']
   
-  const handleSubmit = () => {
-    console.log('Produit à ajouter :', product)
+  const submitProduct = () => {
+    console.log("Product submitted:", product.value)
+  }
   
-    // Tu peux envoyer ça à une API ici avec fetch/axios
-    submitted.value = true
+  const pickFromGallery = () => {
+    product.value.image = 'https://via.placeholder.com/150'
+  }
   
-    // Réinitialiser le formulaire
-    product.name = ''
-    product.description = ''
-    product.price = null
-    product.image = ''
+  const takePhoto = () => {
+    product.value.image = 'https://via.placeholder.com/150/0000FF/FFFFFF?text=Photo'
   }
   </script>
   
   <style scoped>
   .add-product-container {
-    max-width: 600px;
+    max-width: 500px;
     margin: 2rem auto;
-    padding: 1.5rem;
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  
-  .form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
   
-  label {
+  input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .categories {
     display: flex;
     flex-direction: column;
-    font-weight: 600;
+    gap: 0.5rem;
   }
   
-  input,
-  textarea {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
+  .category-radio {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: 0.2s;
+    position: relative;
   }
   
-  button {
+  .category-radio input {
+    display: none;
+  }
+  
+  .category-radio .dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
+    border: 2px solid #800000;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .category-radio input:checked + .dot::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #800000;
+  }
+  
+  .category-name {
+    font-weight: 500;
+  }
+  
+  .image-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .circle-btn {
+    width: 3rem;
+    height: 3rem;
     background-color: #800000;
     color: white;
     border: none;
-    padding: 0.75rem;
-    border-radius: 8px;
+    border-radius: 50%;
+    font-size: 1.2rem;
     cursor: pointer;
-    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
-  button:hover {
+  .circle-btn:hover {
     background-color: #a00000;
   }
   
-  .success-message {
+  .preview-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    margin-top: 0.5rem;
+  }
+  
+  .submit-btn {
+    padding: 0.75rem;
+    background-color: #800000;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
     margin-top: 1rem;
-    text-align: center;
-    color: green;
-    font-weight: bold;
+  }
+  
+  .submit-btn:hover {
+    background-color: #a00000;
   }
   </style>
   

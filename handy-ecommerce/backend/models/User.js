@@ -1,22 +1,24 @@
 // backend/models/User.js
 const mongoose = require('mongoose')
-const bcrypt   = require('bcrypt')
+const bcrypt   = require('bcryptjs')
 
 const userSchema = new mongoose.Schema({
-  firstName: { type: String, required: false },
-  lastName:  { type: String, required: false },
-  email:     { type: String, required: true, unique: true, lowercase: true },
+  firstName: { type: String, trim: true },
+  lastName:  { type: String, trim: true },
+  email:     { type: String, required: true, unique: true, lowercase: true, trim: true },
   password:  { type: String, required: true },
+  role:      { type: String, enum: ['artisan','client'], default: 'client' },
 }, { timestamps: true })
 
-// Hash password before saving
-userSchema.pre('save', async function() {
-  if (!this.isModified('password')) return
+// Hash du mot de passe avant chaque save (create ou update)
+userSchema.pre('save', async function(next) {
+  if (!this.isModified('password')) return next()
   const salt = await bcrypt.genSalt(10)
   this.password = await bcrypt.hash(this.password, salt)
+  next()
 })
 
-// Compare cleartext vs hash
+// Méthode pour comparer un mot de passe en clair
 userSchema.methods.comparePassword = function(plain) {
   return bcrypt.compare(plain, this.password)
 }
