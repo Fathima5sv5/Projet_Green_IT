@@ -7,7 +7,7 @@ import Product from "../pages/Product.vue";
 import Tableware from "../pages/Tableware.vue";
 
 const routes = [
-  { path: '/', component: Product },
+  { path: '/', component: Tableware },
   { path: '/login', component: Login },
   { path: '/register', component: Register },
   { path: '/product', component: Product },
