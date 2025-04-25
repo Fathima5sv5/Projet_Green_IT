@@ -2,7 +2,7 @@
     <aside class="side-menu" :class="{ active: open }">
       <ul>
         <li v-for="cat in categories" :key="cat.name">
-          <router-link :to="`/category/${cat.name}`" class="side-link">
+          <router-link :to="`/${cat.name}`" class="side-link">
             {{ cat.label }}
           </router-link>
         </li>
@@ -23,15 +23,17 @@
   
   <style scoped>
   .side-menu {
+    font-size: 2rem;
     position: fixed;
     top: 0;
     left: -220px;
     width: 200px;
     height: 100%;
-    background: #c3a174;
+    background: #ab8d6c;
     transition: left 0.3s ease;
     padding-top: 80px;
     z-index: 999;
+    font-family: "The Seasons";
   }
   .side-menu.active {
     left: 0;

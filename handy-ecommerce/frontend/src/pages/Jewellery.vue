@@ -1,6 +1,7 @@
 <template>
   <div class="tableware-page">
-    <Header />
+    <Header @toggle-sidebar="sidebarOpen = !sidebarOpen" />
+    <Sidebar :open="sidebarOpen" />
 
     <main class="content">
       <section class="intro-hero-container">
@@ -37,6 +38,9 @@
 <script setup>
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
+import Sidebar from "../components/Sidebar.vue";
+import {ref} from "vue";
+const sidebarOpen = ref(false)
 
 const items = [
   {
