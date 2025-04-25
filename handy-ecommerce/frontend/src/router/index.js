@@ -7,6 +7,9 @@ import Product from '../pages/Product.vue';
 import Tableware from '../pages/Tableware.vue';
 import Profil from '../pages/Profil.vue';
 import AjoutProduit from '../pages/AjoutProduit.vue';
+import Clothing from "../pages/Clothing.vue";
+import Furniture from "../pages/Furniture.vue";
+import Jewellery from "../pages/Jewellery.vue";
 
 
 
@@ -18,6 +21,9 @@ const routes = [
   { path: '/tableware', component: Tableware},
   { path: '/profil', component: Profil},
   { path: '/ajoutproduit', component: AjoutProduit},
+  { path: '/clothing', component: Clothing},
+  { path: '/furniture', component: Furniture},
+  { path: '/jewellery', component: Jewellery},
 ];
 
 const router = createRouter({
