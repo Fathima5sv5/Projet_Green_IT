@@ -1,0 +1,104 @@
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+      color: #3a1b00;
+    }
+
+    header {
+      background-color: #800000;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    header h1 {
+      font-family: 'Georgia', serif;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .icons {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .main-container {
+      display: flex;
+      padding: 20px;
+      background-color: white;
+    }
+
+    .image-section img {
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .login-section {
+      flex: 1;
+      background-color: #d2b48c;
+      border-radius: 20px;
+      padding: 30px;
+      margin-left: 20px;
+    }
+
+    .login-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+
+    .login-section input[type="email"],
+    .login-section input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .login-section .forgot,
+    .login-section .join {
+      display: block;
+      text-align: center;
+      margin-bottom: 10px;
+      color: #3a1b00;
+      text-decoration: none;
+    }
+
+    .login-section button {
+      width: 100%;
+      padding: 10px;
+      background-color: #8b5e3c;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #800000;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
