@@ -123,14 +123,17 @@ const items = [
   flex-wrap: wrap;
   padding: 2rem 1rem;
   background-color: #f5f5f5;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .product {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 220px;
+  width: 100%;
+  max-width: 220px;
+  flex: 1 1 200px;
+  box-sizing: border-box;
 }
 
 .product-country {
@@ -140,8 +143,8 @@ const items = [
 }
 
 .product img {
-  width: 15rem;
-  height: 15rem;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Carré */
   object-fit: cover;
   border: 1px solid #ccc;
 }
