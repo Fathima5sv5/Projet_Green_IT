@@ -10,6 +10,9 @@
     <nav class="top-nav">
       <router-link to="/artists" class="nav-link">Artists</router-link>
       <router-link to="/about"   class="nav-link">About us</router-link>
+      <router-link to="/product" class="nav-item">Products</router-link>
+      <router-link to="/profil" class="nav-item">Profile</router-link>
+      <router-link to="/ajoutproduit" class="nav-item">Add Product</router-link>
     </nav>
     <div class="icons">
       <router-link to="/cart" class="icon-wrapper">

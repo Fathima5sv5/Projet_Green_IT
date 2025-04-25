@@ -15,16 +15,16 @@ import Artist from "../pages/Artist.vue";
 
 
 const routes = [
-  { path: '/', component: AjoutProduit},
+  { path: '/', component: Home},
   { path: '/login', component: Login },
   { path: '/register', component: Register },
   { path: '/product', component: Product},
-  { path: '/tableware', component: Tableware},
+  { path: '/tableware', name: 'tableware', component: Tableware},
   { path: '/profil', component: Profil},
   { path: '/ajoutproduit', component: AjoutProduit},
-  { path: '/clothing', component: Clothing},
-  { path: '/furniture', component: Furniture},
-  { path: '/jewellery', component: Jewellery},
+  { path: '/clothing', name:'clothing', component: Clothing},
+  { path: '/furniture', name: 'furniture', component: Furniture},
+  { path: '/jewellery', name: 'jewellery', component: Jewellery},
   { path: '/artist', component: Artist},
 ];
 
