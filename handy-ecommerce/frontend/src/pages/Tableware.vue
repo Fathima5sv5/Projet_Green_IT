@@ -1,26 +1,29 @@
-<!-- File: frontend/src/pages/Tableware.vue -->
 <template>
   <div class="tableware-page">
     <Header />
 
     <main class="content">
-      <section class="hero">
-        <div class="hero-text">
-          <h1>Tableware</h1>
-          <p>
-            Support Ammar's craftsmanship in pottery<br />
-            <a href="#" class="highlight-link">discovers his products this week !</a>
+      <section class="intro-hero-container">
+        <div class="introduction">
+          <h2 class="intro-title">Tableware</h2>
+          <p class="intro-text">
+            Each piece of pottery is a unique creation that reflects the rich cultural heritage and artistry of its origin.
+            By choosing our handmade tableware, you are not only acquiring a beautiful item for your home but also supporting
+            skilled artisans who pour their heart and soul into their craft.
           </p>
         </div>
-        <div class="hero-image">
-          <img src="/img/table_image1.jpg" alt="Potter at work" />
+
+        <div class="hero">
+          <div class="hero-image">
+            <img src="/img/table_image1.jpg" alt="Potter at work" />
+          </div>
         </div>
       </section>
 
       <section class="products">
         <div class="product" v-for="(item, index) in items" :key="index">
+          <h3 class="product-country">{{ item.country }}</h3>
           <img :src="item.image" :alt="item.title" />
-          <h3>{{ item.country }}</h3>
           <p class="product-name">{{ item.name }}</p>
           <p class="product-price">{{ item.price }}€</p>
         </div>
@@ -34,15 +37,13 @@
 <script setup>
 import Header from '../components/Header.vue'
 import Footer from '../components/Footer.vue'
-console.log('Tableware.vue loaded')
-
 
 const items = [
   {
     country: 'Turkey',
     name: 'HAND-PAINTED VASE',
     price: 70,
-    image: '/img/pottery1.webp'
+    image: '/img/Iranian_handicraft.webp'
   },
   {
     country: 'France',
@@ -63,56 +64,57 @@ const items = [
     image: '/img/table_image3.jpg'
   }
 ]
-
 </script>
 
 <style scoped>
-.tableware-page {
-  padding-top: 60px;
-}
+@import url('https://fonts.googleapis.com/css2?family=The+Seasons&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
 
 .content {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #9f5734;
 }
 
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #804000;
-  color: white;
+.intro-hero-container {
+  display: flex; /* Utilisation de flex pour aligner introduction et hero horizontalement */
+  background-color: #9f5734; /* Optionnel : couleur de fond pour renforcer la distinction */
 }
 
-.hero-text {
-  flex: 1;
+.introduction {
+  flex: 1; /* Prend la largeur restante */
   padding: 2rem;
 }
 
-.hero-text h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.highlight-link {
-  color: #cde8ff;
-  font-weight: bold;
+.intro-title {
+  font-size: 3rem;
+  padding-top: 2rem;
+  color: white;
+  font-family: 'Heebo', sans-serif;
   text-decoration: underline;
-  cursor: pointer;
 }
 
-.hero-image {
-  flex: 1;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.intro-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+  color: white;
+  font-family: 'Heebo', sans-serif;
+}
+
+.hero {
+  flex: 1; /* Prend la largeur restante pour équilibrer avec introduction */
+  display: flex; /* Ajout de flex ici pour le contenu de la section */
+  align-items: center; /* Centre verticalement l'image */
+  justify-content: flex-end; /* Ajoute l'image à droite */
+  background-color: #9f5734; /* Couleur d'arrière-plan pour la section hero */
+  color: white;
 }
 
 .hero-image img {
-  max-width: 100%;
+  max-width: 25rem;
   height: auto;
-  border-radius: 8px;
+  object-fit: cover;
 }
 
 .products {
@@ -121,30 +123,43 @@ const items = [
   flex-wrap: wrap;
   padding: 2rem 1rem;
   background-color: #f5f5f5;
+  gap: 1.5rem;
 }
 
 .product {
-  text-align: center;
-  width: 200px;
-  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220px;
+}
+
+.product-country {
+  font-family: 'The Seasons', serif;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
 }
 
 .product img {
-  width: 100%;
-  height: auto;
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
   border: 1px solid #ccc;
 }
 
 .product-name {
-  background-color: #804000;
+  background-color: #9f5734;
   color: white;
-  padding: 0.5rem;
+  padding: 1rem;
   margin-top: 0.5rem;
+  width: 100%;
+  text-align: center;
   font-weight: bold;
 }
 
 .product-price {
   margin-top: 0.3rem;
   font-weight: bold;
+  font-family: 'Heebo';
+  font-size: 1.6rem;
 }
 </style>
