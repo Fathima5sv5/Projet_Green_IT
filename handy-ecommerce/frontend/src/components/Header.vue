@@ -18,7 +18,7 @@
       <router-link to="/cart" class="icon-wrapper">
         <ShoppingCartIcon class="icon" />
       </router-link>
-      <router-link to="/checkout" class="icon-wrapper">
+      <router-link to="/cart" class="icon-wrapper">
         <CreditCardIcon class="icon" />
       </router-link>
       <router-link to="/login" class="icon-wrapper" title="Login">

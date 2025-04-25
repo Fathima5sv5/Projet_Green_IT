@@ -11,7 +11,7 @@ import Clothing from "../pages/Clothing.vue";
 import Furniture from "../pages/Furniture.vue";
 import Jewellery from "../pages/Jewellery.vue";
 import Artist from "../pages/Artist.vue";
-
+import Cart from '../pages/Cart.vue';
 
 
 const routes = [
@@ -19,13 +19,14 @@ const routes = [
   { path: '/login', component: Login },
   { path: '/register', component: Register },
   { path: '/product', component: Product},
-  { path: '/tableware', name: 'tableware', component: Tableware},
+  { path: '/tableware', name: 'Tableware', component: Tableware},
   { path: '/profil', component: Profil},
   { path: '/ajoutproduit', component: AjoutProduit},
-  { path: '/clothing', name:'clothing', component: Clothing},
-  { path: '/furniture', name: 'furniture', component: Furniture},
-  { path: '/jewellery', name: 'jewellery', component: Jewellery},
+  { path: '/clothing', name:'Clothing', component: Clothing},
+  { path: '/furniture', name: 'Furniture', component: Furniture},
+  { path: '/jewellery', name: 'Jewellery', component: Jewellery},
   { path: '/artist', component: Artist},
+  { path: '/cart', component: Cart}
 ];
 
 const router = createRouter({

@@ -14,10 +14,10 @@
   import { defineProps } from 'vue'
   const props = defineProps({ open: Boolean })
   const categories = [
-    { name: 'furniture', label: 'Furniture' },
-    { name: 'jewellery', label: 'Jewellery' },
-    { name: 'clothing', label: 'Clothing' },
-    { name: 'tableware', label: 'Tableware' }
+    { name: 'Furniture', label: 'Furniture' },
+    { name: 'Jewellery', label: 'Jewellery' },
+    { name: 'Clothing', label: 'Clothing' },
+    { name: 'Tableware', label: 'Tableware' }
   ]
   </script>
   
