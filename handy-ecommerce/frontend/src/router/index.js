@@ -15,7 +15,7 @@ import Artist from "../pages/Artist.vue";
 
 
 const routes = [
-  { path: '/', component: Tableware},
+  { path: '/', component: AjoutProduit},
   { path: '/login', component: Login },
   { path: '/register', component: Register },
   { path: '/product', component: Product},
